@@ -61,4 +61,20 @@ SCENARIO( "ciphing using vigenere", "[vigenere]" )
             REQUIRE( vigenere.get_key()[0] == 'k' );
         }
     }
+
+    GIVEN( "A text containing upper case letters" )
+    {
+        string const text{"SamPle"};
+        string const key{"key"};
+
+        THEN( "It should encode uppercase characters correctly" )
+        {
+            Vigenere const vigenere{key};
+
+            std::string const encoded{vigenere.encode( text )};
+
+            REQUIRE( encoded[0] == 'C' );
+            REQUIRE( encoded[3] == 'Z' );
+        }
+    }
 }

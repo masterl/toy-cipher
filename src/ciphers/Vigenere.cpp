@@ -29,10 +29,18 @@ std::string Vigenere::encode( std::string const &text ) const
 
 char Vigenere::encode_character( char const ch, char const key_ch ) const
 {
-    char const base{'a'};
+    char const lower_base{'a'};
+    char const upper_base{'A'};
+
+    char base{lower_base};
+
+    if( isupper( ch ) )
+    {
+        base = upper_base;
+    }
 
     int const letter_offset{this->get_offset( ch, base )};
-    int const key_offset{this->get_offset( key_ch, base )};
+    int const key_offset{this->get_offset( key_ch, lower_base )};
 
     int const encoded_offset{( letter_offset + key_offset ) % 26};
 
