@@ -1,0 +1,5 @@
+- [ ] Receive key via arguments
+  - [ ] Ensure key is informed (required argument)
+- [ ] Read file
+- [ ] Improve main flow
+  - [ ] Create cipher factory (?)
