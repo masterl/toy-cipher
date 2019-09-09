@@ -1,6 +1,7 @@
 #include <iostream>
-
 #include <map>
+
+#include "ciphers/Vigenere.hpp"
 
 using ProgramOptions = std::map< std::string, std::string >;
 
@@ -15,7 +16,10 @@ int main( int const argc, char const *argv[] )
     if( it == options.end() )
     {
         // cin
-        // Cipher.encode(cin)
+        Vigenere cipher = Vigenere( "key" );
+
+        std::cin.unsetf( std::ios::skipws );
+        cipher.encode( std::cin, std::cout );
     }
     else
     {
