@@ -2,7 +2,7 @@
 
 readonly PROJECT_ROOT=$( cd "$( dirname "$0" )" && pwd )
 
-readonly C_CPP_EXTENSIONS_REGEX='[.](c|cc|cp|cxx|cpp|CPP|c[+]{2}|C)$'
+readonly C_CPP_EXTENSIONS_REGEX='[.](c|cc|cp|cxx|cpp|CPP|c[+]{2}|C|hpp)$'
 
 
 function main()
