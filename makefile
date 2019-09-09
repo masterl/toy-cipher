@@ -103,7 +103,7 @@ MAIN_FLAGS := $(if $(call is_cpp_project),$(CXXFLAGS),$(CFLAGS))
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Executable definitions
 #--------------------------------------------------------------------------
-EXEC := exec
+EXEC := toy-cipher
 TESTEXEC := test
 
 BINDIR := bin
