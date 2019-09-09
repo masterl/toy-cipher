@@ -26,7 +26,7 @@ LIBDIR := -L/usr/lib
 CFLAGS := -Wall
 
 # Flags for the C++ compiler.
-CXXFLAGS := -Wall -std=c++14
+CXXFLAGS := -std=c++14 -Wall -Wextra -pedantic
 CXXFLAGS += -isystem $(PROJECT_ROOT)/vendor
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -42,6 +42,7 @@ CXXFLAGS += -isystem $(PROJECT_ROOT)/vendor
 
 #LINKFLAGS := -lboost_filesystem -lboost_system
 ifeq ($(MAKECMDGOALS),test)
+	CXXFLAGS += -include ./tests/common.hpp
 	TESTFLAGS :=
 endif
 
