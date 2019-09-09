@@ -12,6 +12,8 @@ class Vigenere : public Cipher
 
     private:
     std::string const key;
+
+    char encode_character( char const ch, char const key_ch ) const;
 };
 
 #endif

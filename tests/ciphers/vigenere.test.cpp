@@ -6,7 +6,7 @@ SCENARIO( "ciphing using vigenere", "[vigenere]" )
 {
     GIVEN( "A sample text and a key" )
     {
-        string const text{"sample text"};
+        string const text{"sample"};
         string const key{"key"};
 
         THEN( "It should encode the text" )
@@ -29,6 +29,24 @@ SCENARIO( "ciphing using vigenere", "[vigenere]" )
             char const expected_char{( ( key_first + text_first ) % 26 ) + 'a'};
 
             REQUIRE( ciphered[0] == expected_char );
+        }
+    }
+
+    GIVEN( "A text containing non-alphabetical characters and a key" )
+    {
+        string const text{"a 123"};
+        string const key{"key"};
+
+        THEN( "It should ignore non-alpha characters" )
+        {
+            Vigenere const vigenere{key};
+
+            string const ciphered{vigenere.encode( text )};
+
+            REQUIRE( ciphered[1] == text[1] );
+            REQUIRE( ciphered[2] == text[2] );
+            REQUIRE( ciphered[3] == text[3] );
+            REQUIRE( ciphered[4] == text[4] );
         }
     }
 }

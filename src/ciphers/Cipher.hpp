@@ -8,7 +8,7 @@ class Cipher
     public:
     virtual std::string encode( std::string const &text ) const = 0;
 
-    int get_offset( char character, char base ) const
+    unsigned short get_offset( char const character, char const base ) const
     {
         return character - base;
     }
