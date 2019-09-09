@@ -5,6 +5,7 @@
 Vigenere::Vigenere( std::string const key )
     : key{key}
 {
+    normalize_key();
 }
 
 std::string Vigenere::encode( std::string const &text ) const
@@ -36,4 +37,12 @@ char Vigenere::encode_character( char const ch, char const key_ch ) const
     int const encoded_offset{( letter_offset + key_offset ) % 26};
 
     return encoded_offset + base;
+}
+
+void Vigenere::normalize_key()
+{
+    for( auto &letter : this->key )
+    {
+        letter = tolower( letter );
+    }
 }

@@ -49,4 +49,16 @@ SCENARIO( "ciphing using vigenere", "[vigenere]" )
             REQUIRE( ciphered[4] == text[4] );
         }
     }
+
+    GIVEN( "A key containing upper case letters" )
+    {
+        string const key{"Key"};
+
+        THEN( "It should convert them to lower case" )
+        {
+            Vigenere const vigenere{key};
+
+            REQUIRE( vigenere.get_key()[0] == 'k' );
+        }
+    }
 }

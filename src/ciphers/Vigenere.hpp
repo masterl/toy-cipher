@@ -10,10 +10,16 @@ class Vigenere : public Cipher
 
     virtual std::string encode( std::string const &text ) const;
 
+    std::string get_key() const
+    {
+        return key;
+    }
+
     private:
-    std::string const key;
+    std::string key;
 
     char encode_character( char const ch, char const key_ch ) const;
+    void normalize_key();
 };
 
 #endif
