@@ -9,6 +9,7 @@ class Vigenere : public Cipher
     Vigenere( std::string const key );
 
     virtual std::string encode( std::string const &text ) const;
+    virtual void encode( std::istream &istream, std::ostream &ostream ) const;
 
     std::string get_key() const
     {

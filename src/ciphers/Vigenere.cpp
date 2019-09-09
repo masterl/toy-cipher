@@ -27,6 +27,25 @@ std::string Vigenere::encode( std::string const &text ) const
     return encoded;
 }
 
+void Vigenere::encode( std::istream &istream, std::ostream &ostream ) const
+{
+    int key_index{0};
+    char letter;
+
+    while( istream.good() )
+    {
+        istream >> letter;
+
+        if( istream.good() )
+        {
+            ostream << encode_character( letter, key[key_index] );
+        }
+
+        ++key_index;
+        key_index %= key.length();
+    }
+}
+
 char Vigenere::encode_character( char const ch, char const key_ch ) const
 {
     char const lower_base{'a'};

@@ -77,4 +77,26 @@ SCENARIO( "ciphing using vigenere", "[vigenere]" )
             REQUIRE( encoded[3] == 'Z' );
         }
     }
+
+    GIVEN( "A text stream" )
+    {
+        string const text{"sample"};
+        string const key{"key"};
+
+        THEN( "It should encode correctly" )
+        {
+            string const expected{"cekzpc"};
+
+            Vigenere const vigenere{key};
+
+            istringstream istream;
+            ostringstream ostream;
+
+            istream.str( text );
+
+            vigenere.encode( istream, ostream );
+
+            REQUIRE( ostream.str() == expected );
+        }
+    }
 }
