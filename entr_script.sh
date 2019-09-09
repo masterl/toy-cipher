@@ -10,7 +10,8 @@ function main()
 
   ensure_project_root_was_informed "$1"
 
-  run_tests
+  # run_tests
+  compile
 
   echo
   print_line
@@ -19,6 +20,13 @@ function main()
 
   echo
   date
+}
+
+function compile()
+{
+  echo "Compiling..."
+  print_line
+  make -C "$PROJECT_ROOT"
 }
 
 function run_tests()
