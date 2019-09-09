@@ -15,10 +15,7 @@ std::string Vigenere::encode( std::string const &text ) const
 
     for( auto &letter : encoded )
     {
-        if( isalpha( letter ) )
-        {
-            letter = encode_character( letter, key[key_index] );
-        }
+        letter = encode_character( letter, key[key_index] );
 
         ++key_index;
         key_index %= key.length();
@@ -48,6 +45,11 @@ void Vigenere::encode( std::istream &istream, std::ostream &ostream ) const
 
 char Vigenere::encode_character( char const ch, char const key_ch ) const
 {
+    if( !isalpha( ch ) )
+    {
+        return ch;
+    }
+
     char const lower_base{'a'};
     char const upper_base{'A'};
 
